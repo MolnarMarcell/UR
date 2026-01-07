@@ -50,6 +50,11 @@ select.addEventListener("change", function () {
     }
 });
 
+
+let spinner = document.getElementById("spinner");
+
+spinner.style.display = "block";
+
 fetch('http://api.open-notify.org/astros.json')
     .then(response => response.json())
     .then(data => {
@@ -57,5 +62,10 @@ fetch('http://api.open-notify.org/astros.json')
         feltoltAllomasok(astronautak);
         megjelenitKartyak(astronautak);
     })
-    .catch(error => console.error('Hiba:', error));
-
+    .catch(error => {
+        console.error('Hiba:', error);
+        alert('Hiba történt az adatok lekérése során.');
+    })
+    .finally(() => {
+        spinner.style.display = "none";
+    });
