@@ -7,6 +7,20 @@
     <title>Jelenleg az űrben</title>
 </head>
 <body>
+    <header>
+        <h1>Jelenleg az űrben</h1>
+    </header>
+    <main>
+        <div class="info-bar">
+            <span id="people-count">Űrben tartózkodók száma: <strong>0</strong></span>
+            <select id="station-filter">
+                <option value="all">Összes űrállomás</option>
+            </select>
+        </div>
+        <div id="spinner" class="spinner"></div>
+        <div id="error-message" class="error-message" style="display:none;"></div>
+        <div id="cards-container" class="cards-grid"></div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
