@@ -1,0 +1,111 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0b1e3b;
+    color: #fff;
+    min-height: 100vh;
+}
+header {
+    text-align: center;
+    padding: 2rem 1rem 1rem 1rem;
+}
+h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.info-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+#people-count {
+    font-size: 1.1rem;
+}
+#station-filter {
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+    display: none;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.error-message {
+    color: #fff;
+    background: #e74c3c;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    display: none;
+}
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+.card {
+    background: #162447;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    padding: 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInCard 0.6s ease forwards;
+}
+@keyframes fadeInCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.card:hover {
+    box-shadow: 0 4px 24px #3498db55;
+    transform: translateY(-4px) scale(1.03);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.card-station {
+    font-size: 1rem;
+    color: #7ed6df;
+}
+@media (max-width: 600px) {
+    main {
+        padding: 0.5rem;
+    }
+    .cards-grid {
+        gap: 1rem;
+    }
+    .card {
+        padding: 1rem 0.7rem;
+    }
+}
